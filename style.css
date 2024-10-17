@@ -1,10 +1,63 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 
-#start-form {
+h1 {
   margin-bottom: 20px;
+  font-size: 28px;
+}
+
+form, #game-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+button {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
 }
 
 #game-container {
@@ -13,10 +66,15 @@ body {
 
 #hint {
   font-size: 18px;
-  color: #666;
+  margin-bottom: 10px;
 }
 
-#moves {
-  font-size: 18px;
-  color: #666;
+@media (max-width: 480px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  .container {
+    padding: 30px;
+  }
 }
