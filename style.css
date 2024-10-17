@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#start-form {
+  margin-bottom: 20px;
+}
+
+#game-container {
+  display: none;
+}
+
+#hint {
+  font-size: 18px;
+  color: #666;
+}
+
+#moves {
+  font-size: 18px;
+  color: #666;
+}
