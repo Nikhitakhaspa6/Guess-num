@@ -8,28 +8,43 @@ const moves = document.getElementById('moves');
 
 let startNum, endNum, secretNum, movesCount = 0;
 
-startBtn.addEventListener('click', startGame);
-
-function startGame() {
+// Start Game Handler
+startBtn.addEventListener('click', () => {
   startNum = parseInt(document.getElementById('start').value);
   endNum = parseInt(document.getElementById('end').value);
+
+  if (isNaN(startNum) || isNaN(endNum) || startNum >= endNum) {
+    alert('Please enter valid start and end numbers.');
+    return;
+  }
+
   secretNum = Math.floor(Math.random() * (endNum - startNum + 1)) + startNum;
-  gameContainer.style.display = 'block';
+  movesCount = 0;
+  moves.innerText = `Moves: ${movesCount}`;
+  hint.innerText = 'Make a guess!';
+  guessInput.value = '';
+
+  gameContainer.style.display = 'flex';
   startForm.style.display = 'none';
-}
+});
 
-guessBtn.addEventListener('click', checkGuess);
-
-function checkGuess() {
+// Guess Handler
+guessBtn.addEventListener('click', () => {
   const guess = parseInt(guessInput.value);
+  if (isNaN(guess)) {
+    alert('Please enter a valid number.');
+    return;
+  }
+
   movesCount++;
   moves.innerText = `Moves: ${movesCount}`;
+
   if (guess === secretNum) {
-    hint.innerText = ' Congratulations! You won!';
+    hint.innerText = '🎉 Congratulations! You guessed it!';
     guessBtn.disabled = true;
   } else if (guess < secretNum) {
-    hint.innerText = 'Higher!';
+    hint.innerText = '📈 Higher!';
   } else {
-    hint.innerText = 'Lower!';
+    hint.innerText = '📉 Lower!';
   }
-  }
+});
